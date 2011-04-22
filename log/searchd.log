@@ -1,0 +1,90 @@
+[Fri Apr  1 11:48:40.078 2011] [14283] accepting connections
+[Fri Apr  1 11:49:56.364 2011] [14283] caught SIGTERM, shutting down
+[Fri Apr  1 11:49:56.364 2011] [14283] shutdown complete
+[Fri Apr  1 11:52:11.820 2011] [14384] accepting connections
+[Fri Apr  1 12:24:26.594 2011] [14384] caught SIGTERM, shutting down
+[Fri Apr  1 12:24:26.594 2011] [14384] shutdown complete
+[Fri Apr  1 12:24:26.938 2011] [15246] accepting connections
+[Fri Apr  1 12:53:57.008 2011] [15246] caught SIGTERM, shutting down
+[Fri Apr  1 12:53:57.008 2011] [15246] shutdown complete
+[Fri Apr  1 12:53:57.430 2011] [15704] accepting connections
+[Fri Apr  1 16:09:04.818 2011] [15704] caught SIGTERM, shutting down
+[Fri Apr  1 16:09:04.820 2011] [15704] shutdown complete
+[Fri Apr  1 21:57:08.710 2011] [ 2355] accepting connections
+[Fri Apr  1 23:45:21.222 2011] [ 2355] caught SIGTERM, shutting down
+[Fri Apr  1 23:45:21.223 2011] [ 2355] shutdown complete
+[Sat Apr  2 11:47:41.960 2011] [ 2497] accepting connections
+[Sat Apr  2 12:07:51.652 2011] [ 2497] caught SIGTERM, shutting down
+[Sat Apr  2 12:07:51.652 2011] [ 2497] shutdown complete
+[Sat Apr  2 12:07:52.229 2011] [ 2934] accepting connections
+[Sat Apr  2 12:10:00.368 2011] [ 2934] caught SIGTERM, shutting down
+[Sat Apr  2 12:10:00.368 2011] [ 2934] shutdown complete
+[Sat Apr  2 12:10:00.755 2011] [ 2995] accepting connections
+[Sat Apr  2 12:17:32.825 2011] [ 2995] caught SIGTERM, shutting down
+[Sat Apr  2 12:17:32.825 2011] [ 2995] shutdown complete
+[Sat Apr  2 12:17:33.259 2011] [ 3121] accepting connections
+[Sat Apr  2 12:58:03.942 2011] [ 3121] caught SIGTERM, shutting down
+[Sat Apr  2 12:58:03.942 2011] [ 3121] shutdown complete
+[Sat Apr  2 12:58:04.289 2011] [ 3409] accepting connections
+[Sat Apr  2 15:36:37.861 2011] [ 3409] caught SIGTERM, shutting down
+[Sat Apr  2 15:36:37.861 2011] [ 3409] shutdown complete
+[Sun Apr  3 10:50:43.729 2011] [ 2403] accepting connections
+[Sun Apr  3 15:43:24.285 2011] [ 2403] caught SIGTERM, shutting down
+[Sun Apr  3 15:43:24.285 2011] [ 2403] shutdown complete
+[Mon Apr  4 11:06:26.524 2011] [ 3693] accepting connections
+[Mon Apr  4 16:34:03.905 2011] [ 3693] caught SIGTERM, shutting down
+[Mon Apr  4 16:34:03.906 2011] [ 3693] shutdown complete
+[Fri Apr  8 18:46:12.213 2011] [ 3395] accepting connections
+[Fri Apr  8 19:55:54.215 2011] [ 3395] caught SIGTERM, shutting down
+[Fri Apr  8 19:55:54.215 2011] [ 3395] shutdown complete
+[Thu Apr 14 14:20:48.994 2011] [ 3613] accepting connections
+[Thu Apr 14 15:40:19.905 2011] [ 3613] caught SIGTERM, shutting down
+[Thu Apr 14 15:40:19.905 2011] [ 3613] shutdown complete
+[Fri Apr 15 21:27:03.795 2011] [ 2690] accepting connections
+[Fri Apr 15 23:29:00.605 2011] [ 2690] caught SIGTERM, shutting down
+[Fri Apr 15 23:29:00.605 2011] [ 2690] shutdown complete
+[Sat Apr 16 08:55:01.577 2011] [ 2529] accepting connections
+[Sat Apr 16 22:23:02.183 2011] [ 2529] caught SIGTERM, shutting down
+[Sat Apr 16 22:23:02.208 2011] [ 2529] shutdown complete
+[Sun Apr 17 10:22:26.970 2011] [ 2437] accepting connections
+[Sun Apr 17 10:24:08.715 2011] [ 2437] rotating indices (seamless=1)
+[Sun Apr 17 10:24:08.718 2011] [ 2437] rotating index 'video_core': success
+[Sun Apr 17 10:24:08.719 2011] [ 2437] rotating finished
+[Sun Apr 17 15:43:43.978 2011] [ 2437] caught SIGTERM, shutting down
+[Sun Apr 17 15:43:43.979 2011] [ 2437] shutdown complete
+[Sun Apr 17 18:36:12.221 2011] [ 2331] accepting connections
+[Mon Apr 18 00:00:27.074 2011] [ 2331] caught SIGTERM, shutting down
+[Mon Apr 18 00:00:27.076 2011] [ 2331] shutdown complete
+[Mon Apr 18 09:40:42.219 2011] [ 2592] accepting connections
+[Mon Apr 18 11:02:45.036 2011] [ 2592] rotating indices (seamless=1)
+[Mon Apr 18 11:02:45.037 2011] [ 2592] rotating index 'video_core': success
+[Mon Apr 18 11:02:45.037 2011] [ 2592] rotating finished
+[Mon Apr 18 11:03:13.430 2011] [ 2592] caught SIGTERM, shutting down
+[Mon Apr 18 11:03:13.431 2011] [ 2592] shutdown complete
+[Mon Apr 18 11:03:21.515 2011] [ 3992] accepting connections
+[Mon Apr 18 11:05:28.710 2011] [ 3992] caught SIGTERM, shutting down
+[Mon Apr 18 11:05:28.710 2011] [ 3992] shutdown complete
+[Mon Apr 18 11:05:28.889 2011] [ 4030] accepting connections
+[Mon Apr 18 11:06:01.473 2011] [ 4030] caught SIGTERM, shutting down
+[Mon Apr 18 11:06:01.474 2011] [ 4030] shutdown complete
+[Mon Apr 18 11:06:08.887 2011] [ 4072] accepting connections
+[Mon Apr 18 16:33:00.287 2011] [ 4072] caught SIGTERM, shutting down
+[Mon Apr 18 16:33:00.287 2011] [ 4072] shutdown complete
+[Mon Apr 18 16:33:51.282 2011] [ 8810] accepting connections
+[Mon Apr 18 16:37:03.349 2011] [ 8810] caught SIGTERM, shutting down
+[Mon Apr 18 16:37:03.349 2011] [ 8810] shutdown complete
+[Mon Apr 18 16:37:11.122 2011] [ 8901] accepting connections
+[Mon Apr 18 16:39:22.356 2011] [ 8901] caught SIGTERM, shutting down
+[Mon Apr 18 16:39:22.356 2011] [ 8901] shutdown complete
+[Mon Apr 18 16:39:22.526 2011] [ 8968] accepting connections
+[Mon Apr 18 16:40:14.430 2011] [ 8968] caught SIGTERM, shutting down
+[Mon Apr 18 16:40:14.430 2011] [ 8968] shutdown complete
+[Mon Apr 18 16:40:24.006 2011] [ 9044] accepting connections
+[Mon Apr 18 16:44:45.329 2011] [ 9044] caught SIGTERM, shutting down
+[Mon Apr 18 16:44:45.329 2011] [ 9044] shutdown complete
+[Mon Apr 18 16:44:54.732 2011] [ 9127] accepting connections
+[Mon Apr 18 16:47:35.657 2011] [ 9127] caught SIGTERM, shutting down
+[Mon Apr 18 16:47:35.657 2011] [ 9127] shutdown complete
+[Tue Apr 19 18:51:14.479 2011] [ 3707] accepting connections
+[Tue Apr 19 22:26:03.078 2011] [ 3707] caught SIGTERM, shutting down
+[Tue Apr 19 22:26:03.078 2011] [ 3707] shutdown complete

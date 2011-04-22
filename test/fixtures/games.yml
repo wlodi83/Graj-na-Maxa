@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: 
+  author: 
+  age: 
+  description: 
+  instruction: 
+  embed_src: MyString
+
+two:
+  title: 
+  author: 
+  age: 
+  description: 
+  instruction: 
+  embed_src: MyString

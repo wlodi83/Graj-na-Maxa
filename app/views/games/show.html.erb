@@ -1,0 +1,48 @@
+<% content_for(:scripts) do %>
+<%= javascript_include_tag 'rating_ballot' %>
+<% end %>
+<%= render @game %>
+<% if current_user %>
+<%= form_for(rating_ballot, :remote => true, :html => {:class => 'rating_ballot' }) do |f| %>
+<%= f.label "value_1", content_tag(:span, '1'), {:class => "rating", :id => "1"} %>
+<%= radio_button_tag("rating[value]", 1, current_user_rating == 1, :class => 'rating_button') %>
+<%= f.label "value_2", content_tag(:span, '2'), {:class => "rating", :id => "2"} %>
+<%= radio_button_tag("rating[value]", 2, current_user_rating == 2, :class => 'rating_button') %>
+<%= f.label "value_3", content_tag(:span, '3'), {:class => "rating", :id => "3"} %>
+<%= radio_button_tag("rating[value]", 3, current_user_rating == 3, :class => 'rating_button') %>
+<%= f.label "value_4", content_tag(:span, '4'), {:class => "rating", :id => "4"} %>
+<%= radio_button_tag("rating[value]", 4, current_user_rating == 4, :class => 'rating_button') %>
+<%= f.label "value_5", content_tag(:span, '5'), {:class => "rating", :id => "5"} %>
+<%= radio_button_tag("rating[value]", 5, current_user_rating == 5, :class => 'rating_button') %>
+
+<%= hidden_field_tag("game_id", @game.id) %>
+<%= f.submit %>
+<% end %>
+<table id="rating">
+<thead>
+<tr>
+<th colspan=2>Game Ratings</th>
+</tr>
+</thead>
+<tr>
+<td>Average Rating</td>
+<td><%= @game.average_rating %></td>
+</tr>
+<tr>
+<td>Your Rating</td>
+<td><%= current_user_rating %></td>
+</tr>
+</table>
+<% else %>
+<p>You must be logged to vote<p>
+<% end %>
+Game has been visit <%= Game.current_counter_hits(@game.id) %><br />
+<br />
+<%= link_to 'Email a friend', '#', :onclick => "$('#notify_friend_form').slideDown()" %>
+<%= render 'notify_friend' %>
+<br /> 
+<h3>Comments</h3>
+<div id="comments">
+  <%= render @game.comments %>
+</div>
+<%= link_to "new comment", new_game_comment_path(@game, :format => :js), :remote => true, :id => 'new_comment_link' %>

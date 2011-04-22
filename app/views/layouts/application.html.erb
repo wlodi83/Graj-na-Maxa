@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Graj Na Maxa!</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  <%= stylesheet_link_tag :all, :recursive => true %>
+  <%= include_tiny_mce_if_needed %>
+  <%= javascript_include_tag 'jquery-1.4.2.min', 'rails', 'application' %>
+  <%= yield :scripts %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+<div class="container">
+<div id="header" class="span-24 last">
+<h1>GRAJ NA MAXA!</h1>
+<%= render 'devise/menu/login_items' %>
+<%= render 'devise/menu/registration_items' %>
+</div>
+<div id="subheader" class="span-24 last">
+<%= render 'layouts/category', :categories => @categories %>
+</div>
+<div class="span-4">
+<%= render_navigation(:level => 1) %>
+<%= render :partial => 'categories/category', :categories => @categories %>
+<%= render :partial => 'games/tag_cloud' %>
+</div>
+<div class="span-16">
+<%= content_tag :p, notice, :class => 'notice' if notice.present? %>
+<%= content_tag :p, alert, :class => 'alert' if alert.present? %>
+<%= yield %>
+</div>
+<div class="span-4 last">
+Prawe Menu<br />
+<%= render :partial => 'layouts/search' %> <br />
+<iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fapps%2Fapplication.php%3Fid%3D177993525580750&amp;width=150&amp;colorscheme=light&amp;show_faces=true&amp;stream=false&amp;header=false&amp;height=362" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:150px; height:362px;" allowTransparency="true"></iframe>
+<div id="fb-root"></div><script src="http://connect.facebook.net/en_US/all.js#appId=177993525580750&amp;xfbml=1"></script><fb:live-stream event_app_id="177993525580750" width="150" height="500" xid="" always_post_to_friends="false"></fb:live-stream>
+</div>
+</div>
+</body>
+</html>

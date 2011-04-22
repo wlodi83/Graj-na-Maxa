@@ -1,0 +1,14 @@
+<h3>Category Menu</h3>
+<ul>
+<% for category in @categories do %>
+<li><%= link_to category.name, category_games_url(:category_id => category) %> (<%= category.games.size %>)
+<% if category.children.size > 0 %>
+<ul>
+<% category.children.each do |children| %>
+<li><%= link_to children.name, category_games_url(:category_id => children) %></li> (<%= children.games.size %>)
+<% end %>
+</ul>
+</li>
+<% end %>
+<% end %>
+</ul>

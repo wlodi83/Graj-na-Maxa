@@ -1,0 +1,20 @@
+<h1>Users</h1>
+<% @users.each do |user| %>
+<% if user.avatar? %>
+<%= image_tag user.avatar.url(:thumb) %>
+<% else %>
+<p>Avatar not found</p>
+<% end %>
+<%= link_to user.email, user %>
+   <% if current_user.try(:admin?) %> |
+   <% if user.admin? %>
+     <%= link_to "remove admin role", remove_admin_url(:id => user.id, :format => :js), :remote => true, :id => "remove_admin_link_#{user.id}", :method => :post %>
+     <%= link_to "add admin role", add_admin_url(:id => user.id, :format => :js), :remote => true, :id => "add_admin_link_#{user.id}", :style => 'display:none', :method => :post %>
+   <% else %>
+     <%= link_to "add admin role", add_admin_url(:id => user.id, :format => :js), :remote => true, :id => "add_admin_link_#{user.id}", :method => :post %>
+     <%= link_to "remove admin role", remove_admin_url(:id => user.id, :format => :js), :remote => true, :id => "remove_admin_link_#{user.id}", :style => 'display:none', :method => :post %>
+   <% end %>
+   <br />
+   <% end %>
+   <hr />
+<% end %>

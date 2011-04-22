@@ -1,0 +1,8 @@
+<html>
+<body>
+<p> 
+  Someone added a comment to one of your games <i><%= @game.title %></i>.
+  Go read the comment: <%= link_to @game.title, video_url(@game, :host => 'localhost:3000') %>.
+<p>
+</body>
+</html>

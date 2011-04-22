@@ -1,0 +1,15 @@
+Found <%= @results.count %> results.
+<% @results.each do |video| %>
+<h3 class="loud">
+<%= link_to video.title, video %>
+</h3>
+<br />
+<p>
+<% if video.photos.first %>
+<%= link_to image_tag video.photos.first.photo.url(:medium) %>
+<% end %>
+<%= raw video.description %>
+</p>
+<br />
+<hr />
+<% end %>

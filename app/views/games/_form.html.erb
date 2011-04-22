@@ -1,0 +1,95 @@
+<%= form_for @game, :html => { :multipart => true } do |f| %>
+  <% if @game.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@game.errors.count, "error") %> prohibited this game from being saved:</h2>
+
+      <ul>
+      <% @game.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title, :size => '61' %>
+  </div>
+  <div class="field">
+    <%= f.label :author %><br />
+    <%= f.text_field :author, :size => '61' %>
+  </div>
+  <div class="field">
+    <%= f.label :age %><br />
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description, :class => "mceEditor" %>
+  </div>
+  <div class="field">
+    <%= f.label :instruction %><br />
+    <%= f.text_area :instruction, :class => "mceEditor" %>
+  </div>
+  <div class="field">
+    <%= f.label :embed_src %><br />
+    <%= f.text_field :embed_src, :size => '61' %>
+  </div>
+  <div class="field">
+  <%= f.label :photo %>
+  <%= f.fields_for :photos do |photo_fields| %>
+  <% if photo_fields.object.new_record? %>
+  <p>
+    <%= photo_fields.file_field :photo %>  
+  </p>
+  <% end %>
+  <% end %>
+  </div>
+  <br />
+  <div class="field">
+  <%= f.fields_for :photos do |photo_fields| %>
+    <% unless photo_fields.object.new_record? %>
+      <p>
+       <%= link_to image_tag(photo_fields.object.photo.url(:thumb)), photo_fields.object.photo.url(:large) %>
+      </p>
+      <p>
+      Delete Photo? <%= photo_fields.check_box :_destroy %>
+      </p>
+    <% end %>
+  <% end %>
+  </div>
+  <br /><br /><br />
+  <div class="field">
+    <%= f.label :categories %><br />
+   <ul>
+    <% Category.roots.each do |category| %>
+      <li>
+      <%= check_box_tag 'video[category_ids][]', category.id, @game.category_ids.include?(category.id), :id => dom_id(category) %>
+      <%= label_tag dom_id(category), category.name, :class => "check_box_label" %>
+      </li>
+      <ul>
+      <% if category.children.size > 0 %>
+      <% category.children.each do |children| %>
+      <li>
+      <%= check_box_tag 'video[category_ids][]', children.id, @game.category_ids.include?(children.id), :id => dom_id(children) %>
+      <%= label_tag dom_id(children), children.name, :class => "check_box_label" %>
+      </li>
+      <% end %>
+      <% end %>
+      </ul>
+    <% end %>
+   </ul>
+  </div>
+  <div class="field">
+  <%= f.label :tag_list %>
+  <%= f.text_field :tag_list %>
+  </div>
+  <% if current_user.try(:admin?) %>
+  <div class="field">
+  <%= f.label :published? %>
+  <%= f.check_box :published %>
+  </div> 
+  <% end %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

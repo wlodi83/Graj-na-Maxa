@@ -1,0 +1,9 @@
+<html>
+<body>
+<p>
+  New Game was added to Service Name:<br />
+  Title: <i><%= @game.title %></i>
+  Url: <%= link_to @game.title, game_url(@game, :host => 'localhost:3000') %>
+</p>
+</body>
+</html>

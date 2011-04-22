@@ -1,0 +1,13 @@
+<ul id="cssdropdown">
+<% for category in @categories do %>
+<li class="headlink"><%= link_to category.name, category_games_url(:category_id => category) %>
+<% if category.children.size > 0 %>
+<ul>
+<% category.children.each do |children| %>
+<li><%= link_to children.name, category_games_url(:category_id => children) %></li>
+<% end %>
+</ul>
+</li>
+<% end %>
+<% end %>
+</ul>

@@ -1,0 +1,19 @@
+<div class="games">
+Count of added games: <b><%= @games.size %></b><br />
+<% for game in @games %>
+<h3 class="loud">
+<%= link_to game.title, game %> | <%= link_to 'Edit', edit_game_path(game) %> | <%= link_to 'Delete', game, :confirm => "Are you sure?", :method => :delete %> 
+</h3>
+<% if game.photos.first %>
+<p><%= link_to image_tag game.photos.first.photo.url(:medium) %></p><br />
+<% end %>
+<p>
+<%= raw game.description %><br />
+</p>
+<p>
+<%= raw game.embed_src %></br>
+</p>
+<br />
+<hr />
+<% end %>
+</div>

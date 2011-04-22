@@ -1,0 +1,6 @@
+<%= div_for comment do %>
+  <h3>
+    <%= comment.name %> &lt;<%= comment.email %>&gt; said:
+  </h3>
+  <%= raw comment.body %>
+<% end %>

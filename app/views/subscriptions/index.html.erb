@@ -1,0 +1,32 @@
+<h3>Save Your subscriptions</h3>
+Count of your's subscriptions: <%= current_user.categories.size %><br />
+<ul>
+<% @categories.each do |root| %>
+<li>
+  <%= label_tag root.id, root.name %> |
+  <% if !current_user.has_subscription?(root.id) %>
+  <%= link_to "add subscription", add_subscription_url(:id => root.id, :format => :js), :remote => true, :id => "add_subscription_#{root.id}", :method => :post %>
+  <%= link_to "remove subscription", remove_subscription_url(:id => root.id, :format => :js), :remote => true, :id => "remove_subscription_#{root.id}", :style => "display:none;", :method => :post %>
+  <% else %>
+  <%= link_to "remove subscription", remove_subscription_url(:id => root.id, :format => :js), :remote => true, :id => "remove_subscription_#{root.id}", :method => :post %>
+  <%= link_to "add subscription", remove_subscription_url(:id => root.id, :format => :js), :remote => true, :id => "add_subscription_#{root.id}", :style => "display:none;", :method => :post %> 
+  <% end %> 
+  <% if root.children.size > 0 %>
+  <ul>
+    <% root.children.each do |children| %>
+  <li>
+    <%= label_tag children.id, children.name %> | 
+    <% if !current_user.has_subscription?(children) %>
+    <%= link_to "add_subscription", add_subscription_url(:id => children.id, :format => :js), :remote => true, :id => "add_subscription_#{children.id}", :method => :post %>
+    <%= link_to "remove_subscription", remove_subscription_url(:id => children.id, :format => :js), :remote => true, :id => "remove_subscription_#{children.id}", :style => "display: none;", :method => :post %>
+    <% else %>
+    <%= link_to "remove_subscription", remove_subscription_url(:id => children.id, :format => :js), :remote => true, :id => "remove_subscription_#{children.id}", :method => :post %>
+    <%= link_to "add_subscription", add_subscription_url(:id => children.id, :format => :js), :remote => true, :id => "add_subscription_#{children.id}", :style => "display: none;", :method => :post %>
+    <% end %>
+  </li>
+    <% end %>
+  </ul>
+  <% end %>
+</li>
+<% end %> 
+</ul>

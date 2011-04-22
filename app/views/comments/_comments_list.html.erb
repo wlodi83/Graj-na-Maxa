@@ -1,0 +1,12 @@
+<div class="comments">
+<% for comment in @comments do %>
+<h3 class="loud">
+Game title: <%= comment.game.title %> <br />
+<%= comment.name %> &lt; <%= comment.email %> &gt; |
+<span class='actions'>
+<%= link_to 'Delete', comment_url(comment), :confirm => 'Are you sure?', :method => :delete %>
+</span>
+</h3>
+<%= raw comment.body %>
+<% end %>
+</div>

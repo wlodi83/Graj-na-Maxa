@@ -1,0 +1,21 @@
+<%= div_for game do %>
+  <h3 class="loud">
+    <%= link_to game.title, game %> 
+  </h3>
+  <% if game.photos.first %>
+  <p><%= link_to image_tag game.photos.first.photo.url(:medium) %></p> <br />
+  <% end %>
+  <p>
+  <%= raw game.description %>
+  </p>
+  <p>
+  <%= raw game.author %>
+  </p>
+  <p>
+  <%= raw game.instruction %>
+  </p>
+  <p>
+  <%= raw game.embed_src %>
+  </p>
+<% end %>
+<hr />

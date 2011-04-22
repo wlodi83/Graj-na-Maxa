@@ -1,0 +1,15 @@
+<table id="rating">
+<thead>
+<tr>
+<th colspan=2>Game Ratings</th>
+</tr>
+</thead>
+<tr>
+<td>Average Rating</td>
+<td><%= @game.average_rating %></td>
+</tr>
+<tr>
+<td>Your Rating</td>
+<td><%= current_user_rating %></td>
+</tr>
+</table>

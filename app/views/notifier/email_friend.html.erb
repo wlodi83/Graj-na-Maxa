@@ -1,0 +1,11 @@
+<html>
+<body>
+<p>
+ One of your friends, <%= @sender_name %>,
+ thinks you like an game we have on our service.
+</p>
+<p>
+ Come check all the information about <strong><%= @game.title %></strong> at <%= game_url @game, :host => 'localhost:3000' %>
+</p>
+</body>
+</html>
