@@ -10,7 +10,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 14) do
+ActiveRecord::Schema.define(:version => 15) do
+
+  create_table "authors", :force => true do |t|
+    t.string   "name"
+    t.string   "link"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -40,11 +47,10 @@ ActiveRecord::Schema.define(:version => 14) do
 
   create_table "games", :force => true do |t|
     t.string   "title"
-    t.string   "author"
-    t.string   "age"
     t.text     "description"
     t.text     "instruction"
     t.string   "embed_src"
+    t.integer  "author_id"
     t.datetime "published_at"
     t.datetime "created_at"
     t.datetime "updated_at"

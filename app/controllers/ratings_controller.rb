@@ -3,9 +3,9 @@ class RatingsController < ApplicationController
 
   def create
     @game = Game.find_by_id(params[:game_id])
-    if current_user.ratings.find_by_video_id(@game.id) 
+    if current_user.ratings.find_by_game_id(@game.id) 
       respond_to do |format|
-      format.html { redirect_to video_path(@game), :notice => 'You canot rate for your own game' }
+      format.html { redirect_to game_path(@game), :notice => 'You canot rate for your own game' }
       format.js
       end
     else
@@ -14,7 +14,7 @@ class RatingsController < ApplicationController
       @rating.user_id = current_user.id
       if @rating.save
         respond_to do |format|
-          format.html { redirect_to video_path(@game), :notice => 'Your rating has been saved' }
+          format.html { redirect_to game_path(@game), :notice => 'Your rating has been saved' }
           format.js
         end
       end
@@ -24,12 +24,12 @@ class RatingsController < ApplicationController
   def update
     @game = Game.find_by_id(params[:game_id])
     if current_user.id == @game.id
-      redirect_to video_path(@game), :alert => "You cannot rate for your own game"
+      redirect_to game_path(@game), :alert => "You cannot rate for your own game"
     else
-      @rating = current_user.ratings.find_by_video_id(@game.id)
+      @rating = current_user.ratings.find_by_game_id(@game.id)
       if @rating.update_attributes(params[:rating])
         respond_to do |format|
-          format.html { redirect_to video_path(@game), :notice => "Your rating has been updated" }
+          format.html { redirect_to game_path(@game), :notice => "Your rating has been updated" }
           format.js
         end
       end

@@ -26,7 +26,13 @@
 </thead>
 <tr>
 <td>Average Rating</td>
-<td><%= @game.average_rating %></td>
+<td>
+<% if @game.average_rating.nan? %>
+0
+<% else %>
+<%= @game.average_rating %>
+<% end %>
+</td>
 </tr>
 <tr>
 <td>Your Rating</td>

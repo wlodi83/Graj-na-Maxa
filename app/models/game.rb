@@ -1,8 +1,9 @@
 class Game < ActiveRecord::Base
   self.per_page = 5
   before_save :update_published_at
-  attr_accessible :title, :author, :age, :instruction, :description, :embed_src, :category_ids, :published_at, :photos_attributes, :published, :tag_list
+  attr_accessible :title, :instruction, :description, :embed_src, :category_ids, :published_at, :photos_attributes, :published, :tag_list
   acts_as_taggable_on :tags
+  belongs_to :author
   belongs_to :user
   has_many :ratings
   has_many :raters, :through => :ratings, :source => :users
@@ -65,16 +66,15 @@ class Game < ActiveRecord::Base
     indexes categories.name, :as => :categories_name
   
     has user(:id), :as => :user_ids
+    has author(:id), :as => :author_ids
     has categories(:id), :as => :category_ids
     
     has created_at, updated_at, published_at 
   end 
   validates :title, :presence => true,
 	            :uniqueness => true
-  validates :author, :presence => true
   validates :description, :presence => true
   validates :instruction, :presence => true
-  validates :age, :presence => true
   validates :embed_src, :presence => true
   def average_rating
     @value = 0

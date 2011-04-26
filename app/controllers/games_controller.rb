@@ -64,6 +64,7 @@ class GamesController < ApplicationController
   end
   def new
     @game = Game.new
+    @author = Author.new
     @game.photos.build
     respond_to do |format|
       format.html # new.html.erb
@@ -73,13 +74,15 @@ class GamesController < ApplicationController
   def edit
     if current_user.try(:admin?)
      @game = Game.find(params[:id])
+     @author = @game.author
      @game.photos.build
      respond_to do |format|
        format.html #edit.html.erb
        format.xml { render :xml => @game }
      end
     else
-     @game = current_user.games.find(params[:id])     
+     @game = current_user.games.find(params[:id])
+     @author = @game.author     
      @game.photos.build
      respond_to do |format|
       format.html #edit.html.erb
@@ -88,10 +91,12 @@ class GamesController < ApplicationController
     end
   end
   def create
-    @game = current_user.games.new(params[:video])
+    @game = current_user.games.new(params[:game])
+    @author = Author.new(params[:author])
+    @game.author = @author
     Game.set_hits_counter(@game.id)
     respond_to do |format|
-      if @game.save
+      if @game.save and @author.save
         format.html { redirect_to(@game, :notice => 'Game was successfully created.') }
         format.xml  { render :xml => @game, :status => :created, :location => @game }
       else
@@ -102,9 +107,9 @@ class GamesController < ApplicationController
   end
   def update
     @game = Game.find(params[:id])
-
+    @author = @game.author
     respond_to do |format|
-      if @game.update_attributes(params[:game])
+      if @game.update_attributes(params[:game]) and @author.update_attributes(params[:author])
         format.html { redirect_to(@game, :notice => 'Game was successfully updated.') }
         format.xml  { head :ok }
       else
