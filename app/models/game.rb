@@ -3,6 +3,7 @@ class Game < ActiveRecord::Base
   before_save :update_published_at
   attr_accessible :title, :instruction, :description, :embed_src, :category_ids, :published_at, :photos_attributes, :published, :tag_list
   acts_as_taggable_on :tags
+  belongs_to :age_bracket
   belongs_to :author
   belongs_to :user
   has_many :ratings
@@ -58,15 +59,15 @@ class Game < ActiveRecord::Base
   # thinking_sphinx
   define_index do
     indexes title
-    indexes author
-    indexes age
-    indexes intstruction
+    #indexes author
+    #indexes age
+    indexes instruction
     indexes description
     indexes user.email, :as => :user_email
     indexes categories.name, :as => :categories_name
   
     has user(:id), :as => :user_ids
-    has author(:id), :as => :author_ids
+    #has author(:id), :as => :author_ids
     has categories(:id), :as => :category_ids
     
     has created_at, updated_at, published_at 

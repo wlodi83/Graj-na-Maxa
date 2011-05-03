@@ -1,13 +1,9 @@
-<ul id="cssdropdown">
-<% for category in @categories do %>
-<li class="headlink"><%= link_to category.name, category_games_url(:category_id => category) %>
-<% if category.children.size > 0 %>
 <ul>
-<% category.children.each do |children| %>
-<li><%= link_to children.name, category_games_url(:category_id => children) %></li>
+<% for category in @categories do %>
+<li class="headlink"><%= link_to category.name, category_games_url(:category_id => category) %></li> | 
 <% end %>
-</ul>
+<li>
+<%= link_to ("MORE &dArr;").html_safe, add_tags_div_path(:format => :js), :remote => true, :id => 'more_link' %>
+<%= link_to ("CLOSE &uArr;").html_safe, remove_tags_div_path(:format => :js), :remote => true, :id => 'close_link', :style => 'display:none;' %>
 </li>
-<% end %>
-<% end %>
 </ul>

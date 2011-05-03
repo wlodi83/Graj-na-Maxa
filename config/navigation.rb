@@ -34,6 +34,7 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.item :admin_your_game, 'List of your added games', games_list_your_games_path, :if => Proc.new { user_signed_in? } 
     primary.item :add_game, 'Add Game', new_game_path, :if => Proc.new { user_signed_in? }
     primary.item :add_category, 'Add Category', new_category_path, :if => Proc.new { current_user.try(:admin?) } 
+    primary.item :add_age, 'Add Age Bracket', new_age_bracket_path, :if => Proc.new { current_user.try(:admin?) }
     primary.item :edit_registration, 'Edit registration', edit_user_registration_path, :if => Proc.new { user_signed_in? }
     primary.item :users, 'Users', users_path, :if => Proc.new { user_signed_in? }
   end

@@ -7,9 +7,13 @@ class GamesController < ApplicationController
     redirect_to @game, :notice => "Successfully sent a message to your friend"
   end
   def tag
-    @games = Game.tagged_with(params[:id])
+    @games = Game.tagged_with(params[:id]).where(:published => true).paginate(:page => params[:page], :per_page => 5)
     @tags = Game.tag_counts_on(:tags)
     render :action => 'index'
+  end
+  def add_tags_div
+  end
+  def remove_tags_div
   end
   def index
    if params[:category_id]
@@ -18,12 +22,14 @@ class GamesController < ApplicationController
     respond_to do |format|
       format.html #index.html.erb
       format.xml { render :xml => @games }
+      format.atom
     end
    else
    @games = Game.where(:published => true).paginate(:page => params[:page], :per_page => 5)
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @games }
+      format.atom
     end
    end
   end
@@ -64,6 +70,7 @@ class GamesController < ApplicationController
   end
   def new
     @game = Game.new
+    @age_brackets = AgeBracket.all
     @author = Author.new
     @game.photos.build
     respond_to do |format|
@@ -75,6 +82,7 @@ class GamesController < ApplicationController
     if current_user.try(:admin?)
      @game = Game.find(params[:id])
      @author = @game.author
+     @age_brackets = AgeBracket.all
      @game.photos.build
      respond_to do |format|
        format.html #edit.html.erb
@@ -82,7 +90,8 @@ class GamesController < ApplicationController
      end
     else
      @game = current_user.games.find(params[:id])
-     @author = @game.author     
+     @author = @game.author
+     @age_brackets = AgeBracket.all    
      @game.photos.build
      respond_to do |format|
       format.html #edit.html.erb
@@ -93,6 +102,8 @@ class GamesController < ApplicationController
   def create
     @game = current_user.games.new(params[:game])
     @author = Author.new(params[:author])
+    @age_bracket = AgeBracket.find(params[:game][:age_bracket_id])
+    @game.age_bracket_id = @age_bracket.id
     @game.author = @author
     Game.set_hits_counter(@game.id)
     respond_to do |format|
@@ -108,6 +119,8 @@ class GamesController < ApplicationController
   def update
     @game = Game.find(params[:id])
     @author = @game.author
+    @age_bracket = AgeBracket.find(params[:game][:age_bracket_id])
+    @game.age_bracket_id = @age_bracket.id
     respond_to do |format|
       if @game.update_attributes(params[:game]) and @author.update_attributes(params[:author])
         format.html { redirect_to(@game, :notice => 'Game was successfully updated.') }

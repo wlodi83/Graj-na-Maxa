@@ -23,7 +23,7 @@
 development:
    adapter: postgresql
    encoding: unicode
-   database: pg_grajnamaxa_development
+   database: pg_grajnamaxa_dev
    username: wlodi
    password: deftones
    host: localhost 

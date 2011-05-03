@@ -1,0 +1,2 @@
+module GamerangesHelper
+end

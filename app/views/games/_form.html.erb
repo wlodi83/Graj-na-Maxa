@@ -35,6 +35,10 @@
     <% end %>
   </div>
   <div class="field">
+  <%= f.label :age_bracket %><br />
+  <%= f.collection_select(:age_bracket_id, @age_brackets, :id, :name) %>
+  </div>
+  <div class="field">
   <%= f.label :photo %>
   <%= f.fields_for :photos do |photo_fields| %>
   <% if photo_fields.object.new_record? %>

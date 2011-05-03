@@ -1,4 +1,5 @@
 Serialki::Application.routes.draw do
+  resources :age_brackets
   resources :subscriptions, :only => [:index]
   match 'subscription/add_subscription/:id' => 'subscriptions#add_subscription', :as => :add_subscription 
   match 'subscription/remove_subscription/:id' => 'subscriptions#remove_subscription', :as => :remove_subscription
@@ -6,6 +7,8 @@ Serialki::Application.routes.draw do
   resources :categories do
     resources :games
   end
+  match 'games/add_tags_div' => "games#add_tags_div", :as => 'add_tags_div'
+  match 'games/remove_tags_div' => "games#remove_tags_div", :as => 'remove_tags_div'
   devise_for :users
   resources :users, :only => [:index, :show]
   match 'user/add_admin/:id' => 'users#add_admin', :as => :add_admin

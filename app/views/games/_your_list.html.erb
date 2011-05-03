@@ -1,25 +1,10 @@
 <div class="games">
-Count of added games: <b><%= @games.size %></b><br />
+Count of added games: <b><%= @games.size %></b>
+<hr />
 <% for game in @games %>
 <h3 class="loud">
-<%= link_to game.title, game %> <% if game.published == false %> | <%= link_to 'Edit', edit_game_path(game) %><% end %>
+<%= link_to game.title, game %> <% if game.published? %> | <%= link_to 'Edit', edit_game_path(game) %><% end %>
 </h3>
-<% if game.photos.first %>
-<p><%= link_to image_tag game.photos.first.photo.url(:medium) %></p><br />
-<% end %>
-<p>
-<%= raw game.description %><br />
-</p>
-<p>
-<%= raw game.instruction %><br />
-<p>
-<p>
-<%= raw game.author %><br />
-</p>
-<p>
-<%= raw game.embed_src %><br />
-</p>
-<br />
 <hr />
 <% end %>
 </div>

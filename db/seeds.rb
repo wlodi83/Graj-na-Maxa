@@ -19,4 +19,8 @@ Category.create [{:name => 'Action'},
 {:name => 'Strategy'},
 {:name => 'Adventure'},
 {:name => 'Life & Style'}]
-
+AgeBracket.create [
+{ :name => 'All Ages', :description => "Games rated \"All Ages\" contain content and themes that are suitable for all ages." },
+{ :name => 'Tween+', :description => "Games rated \"Tween +\" contain content and mild suggestive themes that are suitable for ages 10 and older. Some users also might find these games too difficult to play." },
+{ :name => 'Teen+', :description => "Games rated \"Teen +\" contain suggestive themes that are suitable for ages 13 and older." },
+{ :name => 'Teen Caution', :description => "Games rated \"Teen Caution\"  contain content and stronger suggestive themes that may or may not be suitable for ages 13 and older." }]

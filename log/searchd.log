@@ -88,3 +88,13 @@
 [Tue Apr 19 18:51:14.479 2011] [ 3707] accepting connections
 [Tue Apr 19 22:26:03.078 2011] [ 3707] caught SIGTERM, shutting down
 [Tue Apr 19 22:26:03.078 2011] [ 3707] shutdown complete
+[Mon May  2 12:39:07.915 2011] [ 3039] accepting connections
+[Mon May  2 14:19:09.089 2011] [ 3039] caught SIGTERM, shutting down
+[Mon May  2 14:19:09.089 2011] [ 3039] shutdown complete
+[Mon May  2 18:36:28.688 2011] [ 2785] accepting connections
+[Mon May  2 22:37:46.350 2011] [ 2785] caught SIGTERM, shutting down
+[Mon May  2 22:37:46.350 2011] [ 2785] shutdown complete
+[Tue May  3 09:25:00.609 2011] [ 2969] accepting connections
+[Tue May  3 10:46:04.942 2011] [ 2969] rotating indices (seamless=1)
+[Tue May  3 10:46:04.944 2011] [ 2969] rotating index 'game_core': success
+[Tue May  3 10:46:04.944 2011] [ 2969] rotating finished

@@ -1,4 +1,6 @@
 <div id="games">
-  <%= render @games %>
+<% @games.each do |game| %>
+<%= link_to image_tag game.photos.first.photo.url(:medium) %>
+<% end %>
 </div>
 <%= will_paginate @games %>

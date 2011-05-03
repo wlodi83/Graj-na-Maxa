@@ -1,0 +1,6 @@
+<h3>Age Bracket Menu</h3>
+<ul>
+<% for age_bracket in @age_brackets do %>
+<li><%= link_to age_bracket.name, age_bracket_path(age_bracket) %> (<%= age_bracket.games.size %>)</li>
+<% end %>
+</ul>

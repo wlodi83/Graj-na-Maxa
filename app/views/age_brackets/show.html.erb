@@ -1,0 +1,11 @@
+<% @games.each do |game| %>
+<h3><%= raw game.title %></h3>
+<%= raw game.embed_src %><br />
+<%= raw game.description %><br />
+<%= raw game.instruction %><br />
+<% if game.author.link? %>
+<%= link_to game.author.name, game.author.link, :target => '_blank' %><br />
+<% else %>
+<%= raw game.author.name %>
+<% end %>
+<% end %>

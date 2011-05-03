@@ -10,7 +10,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 15) do
+ActiveRecord::Schema.define(:version => 18) do
+
+  create_table "age_brackets", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "description"
+  end
 
   create_table "authors", :force => true do |t|
     t.string   "name"
@@ -55,7 +62,8 @@ ActiveRecord::Schema.define(:version => 15) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-    t.boolean  "published",    :default => false
+    t.boolean  "published",      :default => false
+    t.integer  "age_bracket_id"
   end
 
   create_table "photos", :force => true do |t|

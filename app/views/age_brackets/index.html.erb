@@ -1,0 +1,23 @@
+<h1>Listing age_brackets</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @age_brackets.each do |age_bracket| %>
+  <tr>
+    <td><%= age_bracket.name %></td>
+    <td><%= link_to 'Show', age_bracket %></td>
+    <td><%= link_to 'Edit', edit_age_bracket_path(age_bracket) %></td>
+    <td><%= link_to 'Destroy', age_bracket, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Age bracket', new_age_bracket_path %>
