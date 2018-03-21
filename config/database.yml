@@ -25,5 +25,5 @@ development:
    encoding: unicode
    database: pg_grajnamaxa_dev
    username: wlodi
-   password: deftones
+   password: 
    host: localhost 
